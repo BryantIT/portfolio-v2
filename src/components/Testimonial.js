@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Testimonial(props){
+const Testimonial = (props) => {
   return (
     <div className="mi-testimonial-slideritem">
       <div className="mi-testimonial">

@@ -7,7 +7,7 @@ import Layout from "../components/Layout";
 import Progress from "../components/Progress";
 import Resume from "../components/Resume";
 
-function Resumes(){
+const Resumes = () => {
   const [skills, setSkills] = useState([]);
   const [workingExperience, setWorkingExperience] = useState([]);
   const [educationExperience, setEducationExperience] = useState([]);

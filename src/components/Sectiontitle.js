@@ -1,6 +1,6 @@
 import React from "react";
 
-function Sectiontitle(props) {
+const Sectiontitle = (props) => {
   return (
     <div className="mi-sectiontitle">
       <h2>{props.title}</h2>

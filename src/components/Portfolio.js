@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import * as Icon from "react-feather";
 import ProgressiveImage from 'react-progressive-image';
 
-function Portfolio(props) {
+const Portfolio =(props) => {
   const [toggler, setToggler] = useState(false);
   const { title, subtitle, imageUrl, largeImageUrl, url } = props.content;
 

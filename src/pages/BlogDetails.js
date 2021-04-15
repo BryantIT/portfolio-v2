@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 
-function BlogDetails(props) {
+const BlogDetails = (props) => {
   const [content, setContent] = useState("")
 
   return (

@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import Pagination from "../components/Pagination";
 import PortfoliosView from "../components/PortfoliosView";
 
-function Portfolios() {
+const Portfolios = () => {
   const [portfolios, setPortfoios] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [portfoliosPerPage] = useState(9);

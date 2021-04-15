@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import axios from 'axios';
 import LineIcon from 'react-lineicons';
 
-function Socialicons(props){
+const Socialicons = (props) => {
   const [socialLinks, setSocialLinks] = useState({});
 
   useEffect(() => {

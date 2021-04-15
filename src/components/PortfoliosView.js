@@ -1,7 +1,7 @@
 import React from "react";
 import Portfolio from '../components/Portfolio';
 
-function PortfoliosView({ portfolios }) {
+const PortfoliosView = ({ portfolios }) => {
   return (
     <div className="row mt-30-reverse">
       {portfolios.map(portfolio => (

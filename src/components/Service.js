@@ -1,7 +1,7 @@
 import React from 'react';
 import LineIcon from "react-lineicons";
 
-function Service(props){
+const Service = (props) => {
   return (
     <div className="mi-service">
       <span className="mi-service-icon">

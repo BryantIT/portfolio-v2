@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import LineIcon from 'react-lineicons';
 import { Link, NavLink } from 'react-router-dom';
 
-function Header() {
+const Header = () => {
     const [information, setInformation] = useState("");
     const [navigationToggler, setNavigationToggler] = useState(false);
 

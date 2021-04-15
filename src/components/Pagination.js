@@ -1,13 +1,13 @@
 import React from "react";
 import LineIcon from "react-lineicons";
 
-function Pagination({
+const Pagination = ({
   itemsPerPage,
   totalItems,
   paginate,
   currentPage,
   className
-}) {
+}) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {

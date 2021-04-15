@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import BlogsView from "../components/BlogsView";
 import Pagination from "../components/Pagination";
 
-function Blogs() {
+const Blogs = () => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);

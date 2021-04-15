@@ -4,7 +4,7 @@ import Particles from "react-particles-js";
 import Layout from "../components/Layout";
 import Socialicons from "../components/Socialicons";
 
-function Home({lightMode}){
+const Home = ({lightMode}) => {
   const [information, setInformation] = useState("");
   const paramConfig = {
     particles: {
