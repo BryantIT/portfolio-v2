@@ -1,32 +1,21 @@
-import FsLightbox from "fslightbox-react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as Icon from "react-feather";
-import ProgressiveImage from 'react-progressive-image';
 
 const Portfolio =(props) => {
-  const [toggler, setToggler] = useState(false);
-  const { title, subtitle, imageUrl, largeImageUrl, url } = props.content;
+  const [imageThumb, setImageThumb] = useState()
+  const { name, url, summary } = props.content
 
-  const handleToggler = (value) => {
-    setToggler(value);
-  }
+  useEffect(() => {
+    if (props) {
+      setImageThumb(props.content.images[0].resolutions.thumbnail.url)
+    }
+  }, [props])
 
   return (
     <div className="mi-portfolio mi-portfolio-visible">
       <div className="mi-portfolio-image">
-        {/* <img src={imageUrl} alt={title} /> */}
-        <ProgressiveImage
-          src={imageUrl}
-          placeholder="/images/portfolio-image-placeholder.png"
-        >
-          {src => <img src={src} alt={title} />}
-        </ProgressiveImage>
+          {<img src={imageThumb} alt={name} />}
         <ul>
-          {!largeImageUrl ? null : <li>
-            <button onClick={() => handleToggler(!toggler)}>
-              <Icon.ZoomIn />
-            </button>
-          </li>}
           {url ? <li>
             <a rel="noopener noreferrer" target="_blank" href={url}>
               <Icon.Link />
@@ -34,19 +23,14 @@ const Portfolio =(props) => {
           </li> : null}
         </ul>
       </div>
-      {!url ? <h5>{title}</h5> : <h5>
+      {!url ? <h5>{name}</h5> : <h5>
         <a rel="noopener noreferrer" target="_blank" href={url}>
-          {title}
+          {name}
         </a>
       </h5>}
-      {subtitle ? <h6>{subtitle}</h6> : null}
-      {!largeImageUrl ? null : <FsLightbox
-        toggler={toggler}
-        sources={largeImageUrl}
-      />
-      }
+        <small>{summary}</small>
     </div>
-  );
+  )
 }
 
 export default Portfolio;

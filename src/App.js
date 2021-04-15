@@ -8,7 +8,7 @@ import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Notfound from "./pages/Notfound";
-import Portfolios from "./pages/Portfolios";
+import Projects from "./pages/Projects";
 import Resumes from "./pages/Resumes";
 
 function App() {
@@ -53,7 +53,9 @@ function App() {
         <Route path="/skills" exact>
           <Resumes profile={profileData} />
         </Route>
-        <Route path="/portfolios" component={Portfolios} />
+        <Route path="/projects" exact>
+          <Projects profile={profileData} />
+        </Route>
         <Route path="/blogs" exact component={Blogs} />
         <Route path="/blogs/blog-details/:id/:title" component={BlogDetails} />
         <Route path="/contact" component={Contact} />
