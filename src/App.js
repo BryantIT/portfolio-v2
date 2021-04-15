@@ -47,6 +47,9 @@ function App() {
         <Route path="/" exact>
           <Home lightMode={lightMode} profile={profileData}/>
         </Route>
+        <Route path="/about" exact>
+          <About profile={profileData} />
+        </Route>
         <Route path="/about" component={About} />
         <Route path="/resume" component={Resumes} />
         <Route path="/portfolios" component={Portfolios} />
