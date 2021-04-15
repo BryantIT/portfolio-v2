@@ -50,8 +50,9 @@ function App() {
         <Route path="/about" exact>
           <About profile={profileData} />
         </Route>
-        <Route path="/about" component={About} />
-        <Route path="/resume" component={Resumes} />
+        <Route path="/skills" exact>
+          <Resumes profile={profileData} />
+        </Route>
         <Route path="/portfolios" component={Portfolios} />
         <Route path="/blogs" exact component={Blogs} />
         <Route path="/blogs/blog-details/:id/:title" component={BlogDetails} />

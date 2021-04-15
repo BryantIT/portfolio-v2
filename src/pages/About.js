@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import Sectiontitle from "../components/Sectiontitle";
-import Service from "../components/Service";
-
 
 const About = ({ profile }) => {
   const [isMounted, setIsMounted] = useState(false)
   const [basics, setBasics] = useState()
-  const [skills, setSkills] = useState([])
 
   useEffect(() => {
     if (profile && profile.basics && profile.skills) {
       setBasics(profile.basics)
-      setSkills(profile.skills)
       setIsMounted(true)
     }
   }, [profile])
@@ -53,23 +49,6 @@ const About = ({ profile }) => {
                     Download Resume
                   </a>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="mi-service-area mi-section mi-padding-top mi-padding-bottom">
-          <div className="container">
-            <Sectiontitle title="Skills" />
-            <div className="mi-service-wrapper">
-              <div className="row mt-30-reverse">
-                {skills.sort((a, b) => a.name.localeCompare(b.name)).map((skill) => (
-                  <div
-                    className="col-lg-4 col-md-6 col-12 mt-30"
-                    key={skills.name}
-                  >
-                    <Service content={skill} />
-                  </div>
-                ))}
               </div>
             </div>
           </div>

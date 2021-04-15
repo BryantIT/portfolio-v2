@@ -25,7 +25,7 @@ const Header = () => {
             <ul className="mi-header-menu">
                 <li><NavLink exact to="/"><span>Home</span></NavLink></li>
                 <li><NavLink to="/about"><span>About</span></NavLink></li>
-                <li><NavLink to="/resume"><span>Resume</span></NavLink></li>
+                <li><NavLink to="/skills"><span>Skills</span></NavLink></li>
                 <li><NavLink to="/portfolios"><span>Portfolios</span></NavLink></li>
                 <li><NavLink to="/blogs"><span>Blog</span></NavLink></li>
                 <li><NavLink to="/contact"><span>Contact</span></NavLink></li>
