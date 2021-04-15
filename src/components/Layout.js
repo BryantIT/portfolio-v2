@@ -1,5 +1,4 @@
 import React from "react";
-import BackgroundLines from "../components/BackgroundLines";
 import Header from "../components/Header";
 
 function Layout(props) {
@@ -8,7 +7,7 @@ function Layout(props) {
       <Header />
       {props.children}
     </div>
-  );
+  )
 }
 
-export default Layout;
+export default Layout
