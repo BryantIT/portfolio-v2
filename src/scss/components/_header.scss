@@ -53,8 +53,9 @@
         border-bottom: 1px solid $color-border;
 
         a {
-            height: 200px;
+            height: auto;
             width: 200px;
+            position: relative;
             border-radius: 1000px;
             border: 7px solid $color-border;
             overflow: hidden;
