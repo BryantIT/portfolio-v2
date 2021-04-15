@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Sectiontitle from "../components/Sectiontitle";
 import Layout from "../components/Layout";
 import BlogsView from "../components/BlogsView";
 import Pagination from "../components/Pagination";
 
 const Blogs = () => {
-  const [posts, setPosts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(6);
+  const API_KEY = process.env.REACT_APP_BLOG_API_KEY
+  const [posts, setPosts] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postsPerPage] = useState(6)
 
   useEffect(() => {
-    let mounted = true;
-    axios.get("/api/blog").then(response => {
-      if(mounted){
-        setPosts(response.data);
-      }
-    });
-    return () => mounted = false;
-  }, [posts]);
+    fetch(`https://www.googleapis.com/blogger/v3/blogs/7286084568129189637/posts?key=${API_KEY}`)
+      .then(res => res.json())
+      .then(data => {
+        setPosts(data.items)
+      })
+  }, [API_KEY])
+
+  console.log('BLOG', posts)
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;

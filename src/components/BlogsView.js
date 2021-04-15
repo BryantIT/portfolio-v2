@@ -13,4 +13,4 @@ const BlogsView = ({blogs}) => {
   );
 }
 
-export default BlogsView;
+export default BlogsView

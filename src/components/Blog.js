@@ -1,43 +1,44 @@
-import React from "react";
-import ProgressiveImage from 'react-progressive-image';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { CgMore } from 'react-icons/cg';
 
 const Blog = (props) => {
-  const { id, featuredImage, title, createDay, createMonth, filesource } = props.data;
-  const getShortMonth = month => {
-    return month.slice(0, 3);
-  };
-  const getNospaceTitle = filesource => {
-    let tempArr = filesource.split('/');
-    let fileName = tempArr[tempArr.length - 1];
-    let getName = fileName.slice(0, -3);
-    return getName;
-  };
+  const [isMounted, setIsMounted] = useState(false)
+  const [date, setDate] = useState()
+  const { id, title, published, url, content } = props.data
+  console.log('Props', published.split('-'))
+
+  useEffect(() => {
+    if (props) {
+      const splitDate = published.split('-')
+      const getDay = splitDate[2].split('T')
+      const dateObj = {
+        month: splitDate[1],
+        day: getDay[0],
+        year: splitDate[0]
+      }
+      setDate(dateObj)
+      setIsMounted(true)
+    }
+  }, [props, published])
+
   return (
-    <div className="mi-blog">
-      <div className="mi-blog-image">
-        <Link to={`blogs/blog-details/${id}/${getNospaceTitle(filesource)}`}>
-        <ProgressiveImage
-          src={featuredImage}
-          placeholder="/images/blog-image-placeholder.png"
-        >
-          {src => <img src={src} alt={title} />}
-        </ProgressiveImage>
-        </Link>
-        <div className="mi-blog-date">
-          <span className="date">{createDay}</span>
-          <span className="month">{getShortMonth(createMonth)}</span>
+    isMounted ? (
+      <div className="mi-blog">
+        <div className="mi-blog-image">
+          <Link to={url}>{title}</Link>
+          <br />
+          <span className="date">{`${date.month}/${date.day}/${date.year}`}</span>
+        </div>
+        <div className="mi-blog-content">
+          <h5>
+            {content.replace(/<\/?[^>]+>/gi, '').replace(/&nbsp;/gi, '').substr(0,75)}
+            <p><a href={url} target="_blank" rel="noopener noreferrer"><CgMore /></a></p>
+          </h5>
         </div>
       </div>
-      <div className="mi-blog-content">
-        <h5>
-          <Link to={`blogs/blog-details/${id}/${getNospaceTitle(filesource)}`}>
-            {title}
-          </Link>
-        </h5>
-      </div>
-    </div>
-  );
+    ) : null
+  )
 }
 
-export default Blog;
+export default Blog

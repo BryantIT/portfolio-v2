@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
 import TrackVisibility from "react-on-screen";
 import Sectiontitle from "../components/Sectiontitle";
-import Smalltitle from '../components/Smalltitle';
 import Layout from "../components/Layout";
 import Progress from "../components/Progress";
-import Resume from "../components/Resume";
 
 const Resumes = ({ profile }) => {
   const [skills, setSkills] = useState([])
@@ -33,7 +30,7 @@ const Resumes = ({ profile }) => {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
-export default Resumes;
+export default Resumes
