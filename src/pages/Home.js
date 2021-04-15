@@ -4,8 +4,19 @@ import Particles from "react-particles-js";
 import Layout from "../components/Layout";
 import Socialicons from "../components/Socialicons";
 
-const Home = ({lightMode}) => {
-  const [information, setInformation] = useState("");
+const Home = ({ lightMode, profile }) => {
+  const [isMounted, setIsMounted] = useState(false)
+  const [name, setName] = useState()
+  const [headline, setHeadline] = useState()
+
+  useEffect(() => {
+    if (profile) {
+      setName(profile.basics.name)
+      setHeadline(profile.basics.headline)
+      setIsMounted(true)
+    }
+  }, [profile])
+
   const paramConfig = {
     particles: {
       number: {
@@ -43,7 +54,7 @@ const Home = ({lightMode}) => {
   const paramConfigLight = {
     particles: {
       number: {
-        value: 160,
+        value: 50,
         density: {
           enable: false
         }
@@ -72,33 +83,30 @@ const Home = ({lightMode}) => {
         out_mode: "out"
       }
     }
-  };
-  useEffect(() =>{
-    axios.get('/api/information')
-    .then( response => {
-      setInformation(response.data);
-    })
-  }, [])
+  }
+
   return (
-    <Layout>
-      <div className="mi-home-area mi-padding-section">
-        <Particles className="mi-home-particle" params={lightMode? paramConfigLight : paramConfig} />
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-10 col-12">
-              <div className="mi-home-content">
-                <h1>
-                  Hi, I am <span className="color-theme">{information.name}</span>
-                </h1>
-                <p>{information.aboutContent}</p>
-                <Socialicons bordered />
+    isMounted ? (
+      <Layout>
+        <div className="mi-home-area mi-padding-section">
+          <Particles className="mi-home-particle" params={lightMode? paramConfigLight : paramConfig} />
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-lg-10 col-12">
+                <div className="mi-home-content">
+                  <h1>
+                    Hi, I'm <span className="color-theme">{name}</span>
+                  </h1>
+                  <p>{headline}</p>
+                  <Socialicons bordered />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </Layout>
-  );
+      </Layout>
+    ) : null
+  )
 }
 
 export default Home;

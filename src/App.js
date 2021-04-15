@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as Icon from 'react-feather';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.scss";
@@ -12,9 +12,18 @@ import Portfolios from "./pages/Portfolios";
 import Resumes from "./pages/Resumes";
 
 function App() {
-  const [lightMode, setLightMode] = useState(false); // Made it true if you want to load your site light mode primary
+  const [lightMode, setLightMode] = useState(false)
+  const [profileData, setProfileData] = useState()
 
-  lightMode ? document.body.classList.add('light') : document.body.classList.remove('light');
+  useEffect(() => {
+    fetch('https://gitconnected.com/v1/portfolio/bryantit')
+      .then(res => res.json())
+      .then(profile => {
+        setProfileData(profile);
+      });
+  }, [])
+
+  lightMode ? document.body.classList.add('light') : document.body.classList.remove('light')
 
   const handleMode = () => {
     if (!lightMode) {
@@ -36,7 +45,7 @@ function App() {
       </div>
       <Switch>
         <Route path="/" exact>
-          <Home lightMode={lightMode}/>
+          <Home lightMode={lightMode} profile={profileData}/>
         </Route>
         <Route path="/about" component={About} />
         <Route path="/resume" component={Resumes} />
@@ -47,7 +56,7 @@ function App() {
         <Route path="*" component={Notfound} />
       </Switch>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
