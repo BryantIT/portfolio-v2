@@ -16,7 +16,6 @@ import {
 const Service = (props) => {
 
   const iconSelector = (name) => {
-    console.log('NAME', String(name))
     if (name === 'Ruby On Rails') {
       return <DiRuby />
     }

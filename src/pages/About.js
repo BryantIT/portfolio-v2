@@ -1,20 +1,11 @@
-import axios from "axios";
-import FsLightbox from "fslightbox-react";
 import React, { useEffect, useState } from "react";
-import * as Icon from "react-feather";
-import ProgressiveImage from 'react-progressive-image';
-import Slider from "react-slick";
 import Layout from "../components/Layout";
 import Sectiontitle from "../components/Sectiontitle";
 import Service from "../components/Service";
-import Testimonial from "../components/Testimonial";
 
 
 const About = ({ profile }) => {
   const [isMounted, setIsMounted] = useState(false)
-  const [information, setInformation] = useState("")
-  const [services, setServices] = useState([])
-  const [reviews, setReviews] = useState([])
   const [basics, setBasics] = useState()
   const [skills, setSkills] = useState([])
 
@@ -25,42 +16,6 @@ const About = ({ profile }) => {
       setIsMounted(true)
     }
   }, [profile])
-
-  console.log('Profile', skills)
-
-  const sliderSettings = {
-    dots: false,
-    infinite: true,
-    arrows: false,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    autoplay: true,
-    autoplaySpeed: 6000,
-    pauseOnHover: true,
-    adaptiveHeight: true,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  }
-
-  useEffect(() => {
-    axios.get("/api/information").then((response) => {
-      setInformation(response.data);
-    });
-    axios.get("/api/services").then((response) => {
-      setServices(response.data);
-    });
-    axios.get("/api/reviews").then((response) => {
-      setReviews(response.data);
-    });
-  }, [])
 
   return (
     isMounted ? (
