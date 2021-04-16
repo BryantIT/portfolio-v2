@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Sectiontitle from "../components/Sectiontitle";
 import Layout from "../components/Layout";
 import Pagination from "../components/Pagination";
@@ -18,8 +17,6 @@ const Projects = ({ profile }) => {
     }
   }, [profile])
 
-  console.log('Profile', profile)
-
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
   const currentProjects = projects.slice(
@@ -33,24 +30,26 @@ const Projects = ({ profile }) => {
   }
 
   return (
-    <Layout>
-      <div className="mi-about mi-section mi-padding-top mi-padding-bottom">
-        <div className="container">
-          <Sectiontitle title="Projects" />
-          {<ProjectsView projects={currentProjects} />}
-          {!(projects.length > projectsPerPage) ? null : (
-            <Pagination
-              className="mt-50"
-              itemsPerPage={projectsPerPage}
-              totalItems={projects.length}
-              paginate={paginate}
-              currentPage={currentPage}
-            />
-          )}
+    isMounted ? (
+      <Layout>
+        <div className="mi-about mi-section mi-padding-top mi-padding-bottom">
+          <div className="container">
+            <Sectiontitle title="Projects" />
+            {<ProjectsView projects={currentProjects} />}
+            {!(projects.length > projectsPerPage) ? null : (
+              <Pagination
+                className="mt-50"
+                itemsPerPage={projectsPerPage}
+                totalItems={projects.length}
+                paginate={paginate}
+                currentPage={currentPage}
+              />
+            )}
+          </div>
         </div>
-      </div>
-    </Layout>
-  );
+      </Layout>
+    ) : null
+  )
 }
 
 export default Projects;

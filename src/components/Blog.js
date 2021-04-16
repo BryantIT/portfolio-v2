@@ -5,7 +5,7 @@ import { CgMore } from 'react-icons/cg';
 const Blog = (props) => {
   const [isMounted, setIsMounted] = useState(false)
   const [date, setDate] = useState()
-  const { id, title, published, url, content } = props.data
+  const { title, published, url, content } = props.data
 
   useEffect(() => {
     if (props) {

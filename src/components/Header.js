@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import LineIcon from 'react-lineicons';
 import { Link, NavLink } from 'react-router-dom';
 
