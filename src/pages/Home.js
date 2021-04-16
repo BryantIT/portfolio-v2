@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import Particles from "react-particles-js";
 import Layout from "../components/Layout";

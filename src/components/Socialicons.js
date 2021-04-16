@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import axios from 'axios';
 import LineIcon from 'react-lineicons';
 
 const Socialicons = (props) => {

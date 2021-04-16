@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import * as Icon from "react-feather";
 import Sectiontitle from "../components/Sectiontitle";
 import Layout from "../components/Layout";
 import emailjs from 'emailjs-com';
@@ -12,9 +11,6 @@ const Contact = () => {
   const SERVICE_ID = process.env.REACT_APP_EMAIL_SERVICE_ID
   const TEMPLATE_ID = process.env.REACT_APP_EMAIL_TEMPLATE_ID
   const USER_ID = process.env.REACT_APP_EMAIL_USER_ID
-  const [phoneNumbers, setPhoneNumbers] = useState([])
-  const [emailAddress, setEmailAddress] = useState([])
-  const [address, setAddress] = useState([])
   const [formdata, setFormdata] = useState({
     name: "",
     email: "",
@@ -95,10 +91,6 @@ const Contact = () => {
       ...formdata,
       [event.currentTarget.name] : event.currentTarget.value
     })
-  }
-  const numberFormatter = (number) =>{
-    const phnNumber = number;
-    return phnNumber;
   }
 
   const handleAlerts = () => {
