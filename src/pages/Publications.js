@@ -4,24 +4,24 @@ import Layout from "../components/Layout";
 import Pagination from "../components/Pagination";
 import ProjectsView from "../components/ProjectsView";
 
-const Projects = ({ profile }) => {
+const Publications = ({ profile }) => {
   const [isMounted, setIsMounted] = useState(false)
-  const [projects, setProjects] = useState([])
+  const [publications, setPublications] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
-  const [projectsPerPage] = useState(6)
+  const [publicationsPerPage] = useState(6)
 
   useEffect(() => {
-    if (profile && profile.projects) {
-      setProjects(profile.projects)
+    if (profile && profile.publications) {
+      setPublications(profile.publications)
       setIsMounted(true)
     }
   }, [profile])
 
-  const indexOfLastProject = currentPage * projectsPerPage;
-  const indexOfFirstProject = indexOfLastProject - projectsPerPage;
-  const currentProjects = projects.slice(
-    indexOfFirstProject,
-    indexOfLastProject
+  const indexOfLastPublication = currentPage * publicationsPerPage;
+  const indexOfFirstPublication = indexOfLastPublication - publicationsPerPage;
+  const currentPublications = publications.slice(
+    indexOfFirstPublication,
+    indexOfLastPublication
   )
 
   const paginate = (e, pageNumber) => {
@@ -34,13 +34,13 @@ const Projects = ({ profile }) => {
       <Layout>
         <div className="mi-about mi-section mi-padding-top mi-padding-bottom">
           <div className="container">
-            <Sectiontitle title="Projects" />
-            {<ProjectsView projects={currentProjects} />}
-            {!(projects.length > projectsPerPage) ? null : (
+            <Sectiontitle title="Publications" />
+            {<ProjectsView projects={currentPublications} />}
+            {!(publications.length > publicationsPerPage) ? null : (
               <Pagination
                 className="mt-50"
-                itemsPerPage={projectsPerPage}
-                totalItems={projects.length}
+                itemsPerPage={publicationsPerPage}
+                totalItems={publications.length}
                 paginate={paginate}
                 currentPage={currentPage}
               />
@@ -52,4 +52,4 @@ const Projects = ({ profile }) => {
   )
 }
 
-export default Projects
+export default Publications

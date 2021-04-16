@@ -6,7 +6,7 @@ const Portfolio =(props) => {
   const { name, url, summary } = props.content
 
   useEffect(() => {
-    if (props) {
+    if (props && props.content.images) {
       setImageThumb(props.content.images[0].resolutions.thumbnail.url)
     }
   }, [props])
@@ -14,9 +14,13 @@ const Portfolio =(props) => {
   return (
     <div className="mi-portfolio mi-portfolio-visible">
       <div className="mi-portfolio-image">
-          {<img src={imageThumb} alt={name} />}
+          {
+            imageThumb ? (
+              <img src={imageThumb} alt={name} />
+            ) : null
+          }
         <ul>
-          {url ? <li>
+          {url && imageThumb ? <li>
             <a rel="noopener noreferrer" target="_blank" href={url}>
               <Icon.Link />
             </a>

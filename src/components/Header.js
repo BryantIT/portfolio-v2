@@ -28,6 +28,7 @@ const Header = () => {
                 <li><NavLink to="/skills"><span>Skills</span></NavLink></li>
                 <li><NavLink to="/projects"><span>Projects</span></NavLink></li>
                 <li><NavLink to="/blogs"><span>Blog</span></NavLink></li>
+                <li><NavLink to="/publications"><span>Publications</span></NavLink></li>
                 <li><NavLink to="/contact"><span>Contact</span></NavLink></li>
             </ul>
             <p className="mi-header-copyright">&copy; {new Date().getFullYear()} <b><a rel="noopener noreferrer" target="_blank" href="https://nuclearthemes.com">The Code Ninja</a></b></p>

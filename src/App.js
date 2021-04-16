@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as Icon from 'react-feather';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.scss";
+import Publications from './pages/Publications'
 import About from "./pages/About";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
@@ -54,6 +55,9 @@ function App() {
         </Route>
         <Route path="/projects" exact>
           <Projects profile={profileData} />
+        </Route>
+        <Route path="/publications" exact>
+          <Publications profile={profileData} />
         </Route>
         <Route path="/blogs" exact component={Blogs} />
         <Route path="/contact" component={Contact} />

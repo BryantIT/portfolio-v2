@@ -18,13 +18,13 @@ const Blogs = () => {
       })
   }, [API_KEY])
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  const indexOfLastPost = currentPage * postsPerPage
+  const indexOfFirstPost = indexOfLastPost - postsPerPage
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
 
   const paginate = (e, pageNumber) => {
-    e.preventDefault();
-    setCurrentPage(pageNumber);
+    e.preventDefault()
+    setCurrentPage(pageNumber)
   }
 
   return (
@@ -45,7 +45,7 @@ const Blogs = () => {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
-export default Blogs;
+export default Blogs
