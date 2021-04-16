@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import Sectiontitle from "../components/Sectiontitle";
+import GitHubCalendar from 'react-github-calendar';
 
 const About = ({ profile }) => {
   const [isMounted, setIsMounted] = useState(false)
   const [basics, setBasics] = useState()
+
+  useEffect(() => {
+
+  })
 
   useEffect(() => {
     if (profile && profile.basics && profile.skills) {
@@ -45,6 +50,8 @@ const About = ({ profile }) => {
                       </li>
                     )}
                   </ul>
+                  <h6>Github Contributions:</h6>
+                  <GitHubCalendar username="bryantit" />
                   <a href={'./Bryant-Richards-Resume.pdf'} className="mi-button" download>
                     Download Resume
                   </a>

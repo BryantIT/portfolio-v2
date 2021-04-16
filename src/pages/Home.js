@@ -99,6 +99,10 @@ const Home = ({ lightMode, profile }) => {
                   </h1>
                   <p>{headline}</p>
                   <Socialicons bordered />
+                  <div className="sign">
+                    <p>aka</p>
+                    <span className="fast-flicker">c</span>ode<span className="flicker">{' nin'}</span>ja
+                  </div>
                 </div>
               </div>
             </div>
