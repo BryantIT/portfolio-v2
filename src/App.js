@@ -67,4 +67,25 @@ function App() {
   )
 }
 
+console.log(
+"%c-------------------------------------------",
+"color:white;font-family:system-ui;font-size:1rem;-webkit-text-stroke: 1px black;font-weight:bold"
+)
+console.log(
+"%cmade with ❤️ by TheCodeNinja",
+"color:white;font-family:system-ui;font-size:1rem;-webkit-text-stroke: 1px black;font-weight:bold"
+)
+console.log(
+"%cContact: brich@codeinja.life",
+"color:white;font-family:system-ui;font-size:1rem;-webkit-text-stroke: 1px black;font-weight:bold"
+)
+console.log(
+"%cHire Me Please!",
+"color:white;font-family:system-ui;font-size:1rem;-webkit-text-stroke: 1px black;font-weight:bold"
+)
+console.log(
+"%c-------------------------------------------",
+"color:white;font-family:system-ui;font-size:1rem;-webkit-text-stroke: 1px black;font-weight:bold"
+)
+
 export default App
