@@ -6,7 +6,6 @@ const Blog = (props) => {
   const [isMounted, setIsMounted] = useState(false)
   const [date, setDate] = useState()
   const { id, title, published, url, content } = props.data
-  console.log('Props', published.split('-'))
 
   useEffect(() => {
     if (props) {

@@ -18,8 +18,6 @@ const Blogs = () => {
       })
   }, [API_KEY])
 
-  console.log('BLOG', posts)
-
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
